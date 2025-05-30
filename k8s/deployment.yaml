@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitlab-cicd-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitlab-cicd-app
+  template:
+    metadata:
+      labels:
+        app: gitlab-cicd-app
+    spec:
+      containers:
+        - name: app
+          image: gitlab-cicd-app:latest
+          ports:
+            - containerPort: 3000
